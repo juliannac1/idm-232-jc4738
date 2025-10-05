@@ -1,0 +1,68 @@
+@font-face {
+    font-family: "Judson-Bold";
+    src: url("fonts/Judson-Bold.ttf") format("truetype");
+    font-weight: normal;
+    font-style: normal;
+    color:#241104;
+    
+  }
+
+@font-face {
+    font-family: "Judson-Regular";
+    src: url("fonts/Judson-Regular.ttf") format("truetype");
+    font-weight: normal;
+    font-style: normal;
+    color: #241104;
+  }
+
+@font-face {
+    font-family: "Judson-Italic";
+    src: url("fonts/Judson-Italic.ttf") format("truetype");
+    font-weight: normal;
+    font-style: normal;
+    color: #241104;
+  }
+
+  @font-face {
+    font-family: "roboto-bold";
+    src: url("fonts/Roboto-Bold.ttf") format("truetype");
+    font-weight: normal;
+    font-style: normal;
+    color: #241104;
+  }
+
+  @font-face {
+    font-family: "Roboto-Light";
+    src: url("fonts/Roboto-Light.ttf") format("truetype");
+    font-weight: normal;
+    font-style: normal;
+    color: #241104;
+  }
+
+  @font-face {
+    font-family: "Roboto-Regular";
+    src: url("fonts/Roboto-Regular.ttf") format("truetype");
+    font-weight: normal;
+    font-style: normal;
+    color: #241104;
+  }
+
+h1 {
+    font-family: "Judson-Regular", sans-serif;
+    padding: 2rem;
+    font-size: 60px;
+    
+  }
+
+body {
+    font-family: "Roboto-Regular", sans-serif;
+    padding: 2rem;
+    background-color: #EADED7;
+  }
+
+nav{
+    display: flex;
+    justify-content: center; 
+    align-items: center;
+    
+}

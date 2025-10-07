@@ -66,3 +66,22 @@ nav{
     align-items: center;
     
 }
+
+.search-bar{
+ color: white;
+
+}
+
+.filter{  
+  background: linear-gradient(to bottom, #4da3ff, #007bff);
+  color: white;
+  border: none;
+  padding: 0.75rem 1.5rem;
+  font-size: 1rem;
+  border-radius: 8px;
+  cursor: pointer;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+}
+.recipes{
+
+}

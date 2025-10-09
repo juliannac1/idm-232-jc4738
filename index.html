@@ -3,6 +3,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="style.css">
     <title>Home</title>
 </head>
 
@@ -13,22 +14,36 @@
         </ul>
     </nav>
     <div class="search-bar">
+        <input type="text" placeholder="Search...">
+    </div>
+    <button class="filter-button" id="filterBtn">Filter</button>
 
+  <!-- Popup -->
+  <div class="popup" id="filterPopup">
+    <div class="popup-content">
+      <button class="close-button" id="closePopup">&times;</button>
+      <h2>Filters</h2>
+      <div class="filter-options-container">
+        <label><input type="checkbox" class="filter-checkbox"> No Meat</label>
+        <label><input type="checkbox" class="filter-checkbox"> Eggless</label>
+        <label><input type="checkbox" class="filter-checkbox"> No Dairy</label>
+      </div>
     </div>
-    <div class="filter">
-        <a href="">filter</a>
-    </div>
+  </div>
     <div class="recipes">
         <div class="one">
             <img src="" alt="">
             <p>hey</p>
         </div>
-        <div>
+        <div class="two">
             <img src="" alt="">
+            <p>hey</p>
         </div>
-        <div>
+        <div class="three">
             <img src="" alt="">
+            <p>hey</p>
         </div>
     </div>
+    <script src="script.js"></script>
 </body>
 </html>

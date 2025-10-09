@@ -49,14 +49,12 @@
 
 h1 {
     font-family: "Judson-Regular", sans-serif;
-    padding: 2rem;
     font-size: 60px;
-    
+    padding: none;
   }
 
 body {
     font-family: "Roboto-Regular", sans-serif;
-    padding: 2rem;
     background-color: #EADED7;
   }
 
@@ -68,20 +66,132 @@ nav{
 }
 
 .search-bar{
- color: white;
-
+  letter-spacing: .15px;
+  appearance: none;
+  display: flex;  
+  border-radius: 10px ;
+  padding: 8px 12px;
+  font-size: 1rem;
+  flex: 1 1 auto;
+  min-width: 400px;
+  display: block;
+  width: fit-content;
+  background: #EADED7;
+  box-shadow: inset 2px 2px 6px rgba(0, 0, 0, 0.2);          
 }
 
-.filter{  
-  background: linear-gradient(to bottom, #4da3ff, #007bff);
-  color: white;
+
+/* Main Filter Button */
+.filter-button {
+  border: 1px solid rgba(255, 255, 255, .25) ;
+  background: linear-gradient(to bottom, #fff9f56d, #EADED7);
+  box-shadow: 0 1px 1px rgba(0, 0, 0, 0.078);
+  color: #000000;
+  border-radius: 10px;
+  padding: 8px 12px;
+  padding: 12px 24px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 16px;
+  transition:  0.3s;
+  margin: 1rem;
+}
+
+.filter-button:hover {
+  background-color: #ffffff55;
+  color: black;
+}
+
+/* Popup Overlay */
+.popup {
+  display: none; /* Hidden by default */
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0,0,0,0.5);
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+/* Popup Content */
+.popup-content {
+  background-color: white;
+  padding: 4rem;
+  border-radius: 12px;
+  text-align: center;
+  min-width: 300px;
+  position: relative;
+  margin: 1rem;
+}
+
+/* Close (X) Button */
+.close-button {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background: transparent;
+  border: none;
+  font-size: 24px;
+  cursor: pointer;
+  color: #49494967;
+  font-weight: bold;
+}
+
+.close-button:hover {
+  color: #1f1a1a;
+}
+
+/* Popup Heading */
+.popup-content h2 {
+  margin-bottom: 20px;
+}
+
+/* Filter Options Buttons */
+.filter-options-container {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+
+.recipes{
+  background: linear-gradient(to bottom, #fff9f56d, #EADED7);
   border: none;
   padding: 0.75rem 1.5rem;
   font-size: 1rem;
   border-radius: 8px;
   cursor: pointer;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 1px 1px rgba(0, 0, 0, 0.078);
+  
 }
-.recipes{
 
+@media screen and (min-width: 768px) and (max-width: 991px) {
+  /* Styles that will apply to iPads  */
+  h1 {
+    font-family: "Judson-Regular", sans-serif;
+    padding: 1rem;
+    font-size: 40px;
+  }
+  .body{
+    width: fit-content;
+  }
+}
+
+@media (max-width:500px){
+  h1 {
+    font-family: "Judson-Regular", sans-serif;
+    padding: 1rem;
+    font-size: 30px;
+  }
+  .body{
+    width: fit-content;
+  }
+  .popup-content{
+    padding: 1rem ;
+  }
 }

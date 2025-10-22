@@ -1,0 +1,7 @@
+<?php
+$env_vars = [
+    'DB_SERVER' ==> $SERVER['REDIRECT_DB_SERVER'] ?? $_SERVER['DB_SERVER'] ??null,
+    'DB_USERNAME' ==> $SERVER['REDIRECT_DB_USERNAME'] ?? $_SERVER['DB_USERNAME'] ??null,
+    'DB_PASSWORD' ==> $SERVER['REDIRECT_DB_PASSWORD'] ?? $_SERVER['DB_PASSWORD'] ??null,
+    'DB_NAME' ==> $SERVER['REDIRECT_DB_NAME'] ?? $_SERVER['DB_NAME'] ??null,
+    ]

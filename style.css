@@ -169,10 +169,52 @@ nav{
   box-shadow: 0 1px 1px rgba(0, 0, 0, 0.078);
   
 }
+.recipe-card {
+  margin: 10px;
+  border: none;
+  text-align: center;
+  border-radius: 30px;
+  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.2);
+  max-width: 350px;
+  height: auto;
+  transition: transform 0.3s ease-in-out;
+  background: linear-gradient(to bottom, #fff9f56d, #EADED7);
+  padding: 0.75rem 1.5rem;
+  font-size: 1rem;
+  cursor: pointer;
+  box-shadow: 0 1px 1px rgba(0, 0, 0, 0.078);
+}
+
+.recipe-card:hover {
+  transform: scale(1.05);
+  cursor: pointer;
+}
+
+.recipe-card img {
+  width: 100%;
+  height: auto;
+  border-top-left-radius: 30px;
+  border-top-right-radius: 30px;
+}
+
+.recipe-card h2 {
+  margin-top: 10px;
+  font-size: 18px;
+  padding: 0px 35px;
+}
+
+.recipe-card h3 {
+  font-size: 15px;
+  margin-bottom: 15px;
+  padding: 0px 45px;
+  font-weight: 500;
+  color: var(--darkgreen);
+}
+
 
 .search-bar {
   width: 100%;
-  height: 100%;
+  height: auto;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -189,19 +231,19 @@ form {
 
 form input {
   flex: 1;
-  border: 4px solid var(--darkgreen);
+  border: 2px solid white;
   outline: none;
   border-radius: 2rem 0rem 0rem 2rem;
   padding: 25px;
   font-size: 1.2rem;
   font-family: "Roboto-Regular", sans-serif;
-  color: var(--charcoal);
+  color: black;
 }
 
 form button {
-  background: var(--darkgreen);
+  background: white;
   padding: 25px;
-  border: 4px solid var(--darkgreen);
+  border: 2px solid white;
   outline: none;
   color: white;
   cursor: pointer;
@@ -210,7 +252,7 @@ form button {
   display: flex;
   align-items: center;
   justify-content: center;
-  margin-left: -35px;
+  margin-left: -32px;
 }
 
 .recipe-card {

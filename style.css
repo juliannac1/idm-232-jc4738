@@ -53,32 +53,38 @@ h1 {
     padding: none;
   }
 
+h2{
+  font-family: "Roboto-Bold", sans-serif;
+  font-size: 32px;
+  font-weight: 500;
+}
+
+h3{
+  font-family: "Roboto-Bold", sans-serif;
+  font-size: 20px;
+  font-weight: 500;
+}
+
 body {
     font-family: "Roboto-Regular", sans-serif;
     background-color: #EADED7;
+    justify-content: center; 
+    align-items: center;
   }
 
 nav{
     display: flex;
     justify-content: center; 
-    align-items: center;
+    
+    margin: 0 auto;
     
 }
 
-.search-bar{
-  letter-spacing: .15px;
-  appearance: none;
-  display: flex;  
-  border-radius: 10px ;
-  padding: 8px 12px;
-  font-size: 1rem;
-  flex: 1 1 auto;
-  min-width: 400px;
-  display: block;
-  width: fit-content;
-  background: #EADED7;
-  box-shadow: inset 2px 2px 6px rgba(0, 0, 0, 0.2);          
+a{
+  text-decoration: none;
+  color: #1f1a1a;
 }
+
 
 
 /* Main Filter Button */
@@ -89,18 +95,20 @@ nav{
   color: #000000;
   border-radius: 10px;
   padding: 8px 12px;
-  padding: 12px 24px;
   border: none;
   border-radius: 8px;
   cursor: pointer;
   font-size: 16px;
   transition:  0.3s;
-  margin: 1rem;
+  position: relative;
+  margin-left: 10%; 
+  margin-top: 10px;
+
 }
 
 .filter-button:hover {
   background-color: #ffffff55;
-  color: black;
+  color: #241104;
 }
 
 /* Popup Overlay */
@@ -119,7 +127,7 @@ nav{
 
 /* Popup Content */
 .popup-content {
-  background-color: white;
+  background-color: rgb(245, 243, 238);
   padding: 4rem;
   border-radius: 12px;
   text-align: center;
@@ -160,6 +168,7 @@ nav{
 
 
 .recipes{
+  margin: 0 auto;
   background: linear-gradient(to bottom, #fff9f56d, #EADED7);
   border: none;
   padding: 0.75rem 1.5rem;
@@ -167,10 +176,15 @@ nav{
   border-radius: 8px;
   cursor: pointer;
   box-shadow: 0 1px 1px rgba(0, 0, 0, 0.078);
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); 
+  gap: 1rem; /* space between columns/rows */
+  justify-content: center;
+  max-width: 70%;
   
 }
 .recipe-card {
-  margin: 10px;
+  margin: 5px;
   border: none;
   text-align: center;
   border-radius: 30px;
@@ -180,7 +194,7 @@ nav{
   transition: transform 0.3s ease-in-out;
   background: linear-gradient(to bottom, #fff9f56d, #EADED7);
   padding: 0.75rem 1.5rem;
-  font-size: 1rem;
+  
   cursor: pointer;
   box-shadow: 0 1px 1px rgba(0, 0, 0, 0.078);
 }
@@ -193,22 +207,23 @@ nav{
 .recipe-card img {
   width: 100%;
   height: auto;
-  border-top-left-radius: 30px;
-  border-top-right-radius: 30px;
+  border-radius: 20px;
 }
 
 .recipe-card h2 {
-  margin-top: 10px;
-  font-size: 18px;
-  padding: 0px 35px;
+  margin: 10px 0px 0px;
+  font-size: 27px;
+  padding: 0px 5px;
+  width: 100%;
+  color: #241104;
 }
 
 .recipe-card h3 {
-  font-size: 15px;
+  font-size: 24px;
   margin-bottom: 15px;
-  padding: 0px 45px;
+  padding: 0px 5px;
   font-weight: 500;
-  color: var(--darkgreen);
+  color: #241104;
 }
 
 
@@ -221,17 +236,22 @@ nav{
 }
 
 form {
-  background: white;
+  background: #EADED7;
   width: 500px;
   height: 55px;
   display: flex;
   border-radius: 2rem;
   margin: 5px;
+  
 }
-
+input{
+  background: #EADED7;
+  box-shadow: inset 3px 3px 6px rgba(0, 0, 0, 0.25),
+              inset -3px -3px 6px rgba(255, 255, 255, 0.7);
+}
 form input {
   flex: 1;
-  border: 2px solid white;
+  border: 2px solid #EADED7;
   outline: none;
   border-radius: 2rem 0rem 0rem 2rem;
   padding: 25px;
@@ -241,11 +261,11 @@ form input {
 }
 
 form button {
-  background: white;
+  background: #EADED7;
   padding: 25px;
-  border: 2px solid white;
+  border: 2px solid #EADED7;
   outline: none;
-  color: white;
+  color: #EADED7;
   cursor: pointer;
   border-radius: 0rem 2rem 2rem 2.5rem;
   font-size: 1.5rem;
@@ -253,6 +273,15 @@ form button {
   align-items: center;
   justify-content: center;
   margin-left: -32px;
+  box-shadow: inset 0px 3px 0px rgba(0, 0, 0, 0.25),
+              inset -3px -3px 6px rgba(255, 255, 255, 0.7);
+}
+
+
+.search-icon {
+  width: 20px;
+  height: 20px;
+  object-fit: contain;
 }
 
 .recipe-card {
@@ -268,6 +297,76 @@ form button {
 }
 
 
+---------------------------------------
+.image{
+  max-width: auto;
+  height: 100px;
+  border-radius: 20px;
+}
+
+.image img {
+  width: 70%;
+  height: auto; /* maintains the natural aspect ratio */
+  max-width: 600px; /* optional: keeps images from being too large */
+  border-radius: 20px;
+  display: block;
+  margin: 0 auto;
+  position: relative;
+}
+
+.head-image img {
+  width: 100%;
+  max-height: 200px;          
+  border-radius: 20px;
+  display: block;
+  margin: 0 auto;
+  object-fit: cover;
+}
+
+.name{
+  width: 60%;
+  max-width: 1000px;
+  margin: 0 auto;      /* centers it horizontally */
+  text-align: center;  /* centers the text inside */
+  position: relative;
+  top: -40px;              /* moves it upward to overlap the image */
+  width: 70%;
+  max-width: 1000px;
+  margin: 0 auto;
+  text-align: center;
+  padding: 1rem 1.5rem;
+  border: 1px solid rgba(255, 255, 255, .25) ;
+  background: linear-gradient(to bottom, #fbefe8, #EADED7);
+  box-shadow: 0 1px 1px rgba(0, 0, 0, 0.078);
+  color: #1f1a1a;
+  border-radius: 10px;
+}
+
+.back{
+  position: absolute;
+  top: 120px;   /* adjust to move above or overlap slightly */
+  left: 15%;  
+
+}
+.back img{
+  height: 30px; 
+  width: auto;
+  display: block;
+}
+
+.box{
+  width: 60%;
+  max-width: 1000px;
+  padding: 1rem 1rem;
+  margin: 1rem auto;      /* centers it horizontally */
+  text-align: left;  /* centers the text inside */
+  border: 1px solid rgba(255, 255, 255, .25) ;
+  background: linear-gradient(to bottom, #fff9f56d, #EADED7);
+  box-shadow: 0 1px 1px rgba(0, 0, 0, 0.078);
+  color: #1f1a1a;
+  border-radius: 10px;
+}
+
 @media (max-width: 600px) {
   form {
       width: 400px;
@@ -279,9 +378,28 @@ form button {
 
   .recipes {
     display: grid;
-    grid-template-columns: 20% 80%;
     margin: 50px;
 }
 
   
+}
+@media (min-width: 601px) {
+
+  form input {
+      font-size: 1.1rem;
+  }
+
+  .recipes {
+    display: grid;
+    max-width: 1000px;
+    margin: 0 auto;
+    justify-content: center;
+}
+
+  
+}
+
+.footer{
+  font-family: "Judson-Regular", sans-serif;
+  text-align: center;
 }

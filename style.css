@@ -1,63 +1,49 @@
 @font-face {
-    font-family: "Judson-Bold";
-    src: url("fonts/Judson-Bold.ttf") format("truetype");
-    font-weight: normal;
-    font-style: normal;
-    color:#241104;
-    
-  }
+  font-family: "Judson-Bold";
+  src: url("fonts/Judson-Bold.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
 
 @font-face {
-    font-family: "Judson-Regular";
-    src: url("fonts/Judson-Regular.ttf") format("truetype");
-    font-weight: normal;
-    font-style: normal;
-    color: #241104;
-  }
+  font-family: "Judson-Regular";
+  src: url("fonts/Judson-Regular.ttf") format("truetype");
+}
 
 @font-face {
-    font-family: "Judson-Italic";
-    src: url("fonts/Judson-Italic.ttf") format("truetype");
-    font-weight: normal;
-    font-style: normal;
-    color: #241104;
-  }
+  font-family: "Judson-Italic";
+  src: url("fonts/Judson-Italic.ttf") format("truetype");
+}
 
-  @font-face {
-    font-family: "roboto-bold";
-    src: url("fonts/Roboto-Bold.ttf") format("truetype");
-    font-weight: normal;
-    font-style: normal;
-    color: #241104;
-  }
+@font-face {
+  font-family: "roboto-bold";
+  src: url("fonts/Roboto-Bold.ttf") format("truetype");
+}
 
-  @font-face {
-    font-family: "Roboto-Light";
-    src: url("fonts/Roboto-Light.ttf") format("truetype");
-    font-weight: normal;
-    font-style: normal;
-    color: #241104;
-  }
+@font-face {
+  font-family: "Roboto-Light";
+  src: url("fonts/Roboto-Light.ttf") format("truetype");
+}
 
-  @font-face {
-    font-family: "Roboto-Regular";
-    src: url("fonts/Roboto-Regular.ttf") format("truetype");
-    font-weight: normal;
-    font-style: normal;
-    color: #241104;
-  }
+@font-face {
+  font-family: "Roboto-Regular";
+  src: url("fonts/Roboto-Regular.ttf") format("truetype");
+}
+
+
 
 h1 {
     font-family: "Judson-Regular", sans-serif;
     font-size: 60px;
-    padding: none;
+    padding: 5rem;
   }
 
 h2{
-  font-family: "Roboto-Bold", sans-serif;
+  font-family: "roboto-bold", sans-serif;
   font-size: 32px;
   font-weight: 500;
 }
+
 
 h3{
   font-family: "Roboto-Bold", sans-serif;
@@ -72,12 +58,31 @@ body {
     align-items: center;
   }
 
-nav{
-    display: flex;
-    justify-content: center; 
-    
-    margin: 0 auto;
-    
+/* Remove default ul styles */
+.nav-links {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: flex-end; /* Right align by default */
+  align-items: center;
+  position: relative;
+}
+
+/* Center "Savor" */
+.nav-links .savor {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 1.8rem;
+  font-weight: 700;
+  padding: 0;
+}
+
+.nav-links .savor a {
+  text-decoration: none;
+  color: #000000;
+ 
 }
 
 a{
@@ -184,6 +189,8 @@ a{
   
 }
 .recipe-card {
+  display:flex;
+  flex-direction: column;
   margin: 5px;
   border: none;
   text-align: center;
@@ -194,7 +201,7 @@ a{
   transition: transform 0.3s ease-in-out;
   background: linear-gradient(to bottom, #fff9f56d, #EADED7);
   padding: 0.75rem 1.5rem;
-  
+  position: relative;
   cursor: pointer;
   box-shadow: 0 1px 1px rgba(0, 0, 0, 0.078);
 }
@@ -208,6 +215,9 @@ a{
   width: 100%;
   height: auto;
   border-radius: 20px;
+  object-fit: cover;
+  margin: 0; /* reset any weird margin */
+  padding: 5px 0 0;
 }
 
 .recipe-card h2 {
@@ -297,24 +307,7 @@ form button {
 }
 
 
----------------------------------------
-.image{
-  max-width: auto;
-  height: 100px;
-  border-radius: 20px;
-}
-
-.image img {
-  width: 70%;
-  height: auto; /* maintains the natural aspect ratio */
-  max-width: 600px; /* optional: keeps images from being too large */
-  border-radius: 20px;
-  display: block;
-  margin: 0 auto;
-  position: relative;
-}
-
-.head-image img {
+.recipe-cover-img {
   width: 100%;
   max-height: 200px;          
   border-radius: 20px;
@@ -323,36 +316,26 @@ form button {
   object-fit: cover;
 }
 
-.name{
-  width: 60%;
-  max-width: 1000px;
-  margin: 0 auto;      /* centers it horizontally */
-  text-align: center;  /* centers the text inside */
-  position: relative;
-  top: -40px;              /* moves it upward to overlap the image */
-  width: 70%;
-  max-width: 1000px;
+
+.content{
   margin: 0 auto;
-  text-align: center;
-  padding: 1rem 1.5rem;
-  border: 1px solid rgba(255, 255, 255, .25) ;
-  background: linear-gradient(to bottom, #fbefe8, #EADED7);
+  background: linear-gradient(to bottom, #fff9f56d, #EADED7);
+  border: none;
+  padding: 0.75rem 1.5rem;
+  font-size: 1rem;
+  border-radius: 8px;
+  cursor: pointer;
   box-shadow: 0 1px 1px rgba(0, 0, 0, 0.078);
-  color: #1f1a1a;
-  border-radius: 10px;
+  display: flex;
+  gap: 1rem; /* space between columns/rows */
+  justify-content: center;
+  max-width: 70%;
 }
 
-.back{
-  position: absolute;
-  top: 120px;   /* adjust to move above or overlap slightly */
-  left: 15%;  
 
-}
-.back img{
-  height: 30px; 
-  width: auto;
-  display: block;
-}
+.nav-links a:hover {
+  color: #000; 
+} 
 
 .box{
   width: 60%;

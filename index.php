@@ -23,36 +23,37 @@ $result = $stmt->get_result();
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="style.css">
-  <link rel="normalize" href="normal.css">
+  <link rel="stylesheet" href="normal.css">
   <title>Home</title>
 </head>
 
 <body>
+  
     <header>
 
         <nav>
-            <ul class="nav-links">
-                <li class="savor"><a href="index.php"><h1>Savor.</h1></a></li>
-                <div class="nav">
-                <li><a href="index.php">Recipes</a></li>
-                <li><a href="help.html">Help</a></li>
-                </div>
-            </ul>
+        <ul class="nav-links">
+        <li class="savor"><a href="index.php"><h1>Savor.</h1></a></li>
+        <div class="nav">
+            <li><a href="index.php">Recipes</a></li>
+            <li><a href="help.html">Help</a></li>
+        </div>
+        </ul>
         </nav>
     </header>
 
       
-      
-    <div class="search-bar">
-      <form>
-      <input type="search" placeholder="Search for recipes">
-      <button type="submit" class="search-btn">
-        <img src="images/search.png" alt="Search" class="search-icon">
-      </button>
-      </form>
+    <div class="search-container">
+  <div class="search-bar">
+    <form method="POST" action="searchResult.php">
+        <input type="search" name="search-bar" placeholder="Search for recipes">
+        <button type="submit" class="search-btn">
+            <img src="images/search.png" alt="Search" class="search-icon">
+        </button>
+    </form>
   </div>
-    <button class="filter-button" id="filterBtn">Filter</button>
-
+  <button class="filter-button" id="filterBtn">Filter</button>
+</div>
   <!-- Popup -->
   <div class="popup" id="filterPopup">
     <div class="popup-content">
@@ -60,12 +61,15 @@ $result = $stmt->get_result();
       <h2>Filters</h2>
       <div class="filter-options-container">
        <form action="filter.php" method="post">
-       <label><input type="checkbox" class="filter-checkbox"> No Meat</label>
-        <label><input type="checkbox" class="filter-checkbox"> Eggless</label>
-        <label><input type="checkbox" class="filter-checkbox"> No Dairy</label>
-        <label><input type="checkbox" class="filter-checkbox"> No Nuts</label>
-        <label><input type="checkbox" class="filter-checkbox"> Gluten Free</label>
-       </form>
+       <div class="filter-options-container">
+        <label><input type="checkbox" name="filters[]" value="Egg"> No Egg</label>
+        <label><input type="checkbox" name="filters[]" value="Milk"> No Milk</label>
+        <label><input type="checkbox" name="filters[]" value="No Meat"> No Meat</label>
+        <label><input type="checkbox" name="filters[]" value="No Nuts"> No Nuts</label>
+        <label><input type="checkbox" name="filters[]" value="Gluten Free"> Gluten Free</label>
+      </div>
+      <button type="submit" class="apply-btn">Apply Filters</button>
+      </form>
         
       </div>
     </div>
@@ -81,8 +85,6 @@ $result = $stmt->get_result();
         <img src="<?php echo rtrim($row['images'], '/') . '/cover.jpg'; ?>" 
              alt="<?php echo "Cover image for " . $row['title']; ?>">
     </div>
-
-
         
         <div class="card-header">
                 <h2><?php echo $row['title']; ?></h2>
@@ -97,5 +99,6 @@ $result = $stmt->get_result();
 </div>
 </body>
 </html>
+<script src="script.js"></script>
 
 </body>

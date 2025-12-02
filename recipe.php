@@ -26,22 +26,26 @@ $images = $recipe['images'];
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="style.css">
-  <link rel="normalize" href="normal.css">
+  <link rel="stylesheet" href="normal.css">
   <title>Recipe</title>
 </head>
 
 <body>
 <header>
-        <nav>
-            <ul class="nav-links">
-                <li><a href="index.php">All Recipes</a></li>
-                <li><a href="help.html">Help</a></li>
-                <li><a href="index.php"><h1>Savor.</h1></a></li>
-            </ul>
+       
+<nav>
+        <ul class="nav-links">
+        <li class="savor"><a href="index.php"><h1>Savor.</h1></a></li>
+        <div class="nav">
+            <li><a href="index.php">Recipes</a></li>
+            <li><a href="help.html">Help</a></li>
+        </div>
+        </ul>
         </nav>
     </header>
 
-    <main>
+    <main class="recipe-text">
+    <button class="back-btn" onclick="history.back()">← Back</button>
         <section class="recipe-hero">
             <div class="recipe-hero-left">
                 <div class="recipe-title">
@@ -55,77 +59,49 @@ $images = $recipe['images'];
                 </div>
             </div>
             <div class="recipe-hero-right">
-                <div class="recipe-cover-img">
+            <div class="recipe-cover-img">
                 <img src="<?php echo rtrim($images, '/') . '/cover.jpg'; ?>" 
                 alt="<?php echo "Cover image for " . htmlspecialchars($recipe_title); ?>">
-                </div>
+            </div>
+
             </div>
         </section>
 
         <section class="recipe-containers">
-            <div class="recipe-information-left">
-                <div class="recipe-heading">
-                    <h2>Ingredients</h2>
-                </div>
-                <div class="recipe-ingredients-list">
-                    <ul>
-                    <?php 
-                        $ingredients = explode("\n", $recipe_ingredients);
-                        foreach ($ingredients as $item) {
-                            echo "<li>$item</li>";
-                            
-                        }
-                    ?>
-                    </ul>
-                </div>
-            </div>
-        <div class="recipe-ingredients-img">
-            <div class="recipe-img">
-                <img src="<?php echo rtrim($images, '/') . '/ingredients.png'; ?>" 
-                    alt="<?php echo "Ingredients for " . htmlspecialchars($recipe_title); ?>">
-            </div>
+<?php 
+    $step_number = 1;
+    $recipe_steps = explode("*", $recipe_recipe);
+
+    $word_numbers = ['one','two','three','four','five','six'];
+
+    foreach ($recipe_steps as $step) {
+
+        
+        $current_image = rtrim($images, '/') . '/' . $word_numbers[$step_number - 1] . '.jpg';
+?>
+    <div class="recipe-information-left">
+        <div class="recipe-heading">
+            <h3><?php echo htmlspecialchars($step_number); ?></h3>
         </div>
 
-        </section>    
-        <section>
-            <h1>Steps</h1>
-        </section>       
-        <section class="recipe-containers">
-    <?php 
-        $step_number = 1;
-        $recipe_steps = explode("*", $recipe_recipe);
-
-        // Convert the DB column 'images' into an array
-        $image_list = explode(",", $images); // e.g., "one.jpg,two.jpg,three.jpg"
-
-        foreach ($recipe_steps as $step) {
-            // Get the image for this step (array is 0-indexed)
-            $current_image = isset($image_list[$step_number - 1]) ? $image_list[$step_number - 1] : null;
-    ?>
-        <div class="recipe-information-left">
-            <div class="recipe-heading">
-                <h3><?php echo htmlspecialchars($step_number); ?></h3>
-            </div>
-
-            <div class="recipe-steps">
-                <p><?php echo htmlspecialchars($step); ?></p>
-            </div>
+        <div class="recipe-steps">
+            <p><?php echo htmlspecialchars(trim($step)); ?></p>
         </div>
+    </div>
 
-        <div class="recipe-information-right">
-            <div class="recipe-img">
-                <?php if ($current_image): ?>
-                    <img src="uploads/<?php echo htmlspecialchars($current_image); ?>" 
-                         alt="Step <?php echo $step_number; ?> image">
-                <?php endif; ?>
-            </div>
+    <div class="recipe-information-right">
+        <div class="recipe-img">
+            <img src="<?php echo htmlspecialchars($current_image); ?>" 
+                 alt="Step <?php echo $step_number; ?> image">
         </div>
+    </div>
 
-            <?php
-                $step_number++;
-                }
-            ?>
-            </section>
+<?php
+        $step_number++;
+    }
+?>
+</section>
+
 
         <section class="recipe-conclusion">
             <h3>Fresh and delicious, savor it while it lasts.</h3>

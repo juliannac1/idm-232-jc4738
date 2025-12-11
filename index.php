@@ -2,7 +2,7 @@
 
 <?php
 
-require_once 'db.php';
+require_once '_db.php';
 
 
 
@@ -11,6 +11,8 @@ $stmt=$connection->prepare ("SELECT * FROM recipes");
 $stmt->execute();
 
 $result = $stmt->get_result();
+
+$connection->close();
 
 
 ?>
@@ -30,7 +32,12 @@ $result = $stmt->get_result();
 <body>
   
     <header>
-
+    <input type="checkbox" id="nav-toggle" class="nav-toggle" hidden />
+                <label for="nav-toggle" class="nav-toggle-label">
+                  <span></span>
+                  <span></span>
+                  <span></span>
+                </label>
         <nav>
         <ul class="nav-links">
         <li class="savor"><a href="index.php"><h1>Savor.</h1></a></li>
@@ -62,11 +69,11 @@ $result = $stmt->get_result();
       <div class="filter-options-container">
        <form action="filter.php" method="post">
        <div class="filter-options-container">
-        <label><input type="checkbox" name="filters[]" value="Egg"> No Egg</label>
-        <label><input type="checkbox" name="filters[]" value="Milk"> No Milk</label>
-        <label><input type="checkbox" name="filters[]" value="No Meat"> No Meat</label>
-        <label><input type="checkbox" name="filters[]" value="No Nuts"> No Nuts</label>
-        <label><input type="checkbox" name="filters[]" value="Gluten Free"> Gluten Free</label>
+        <label><input type="checkbox" name="filters[]" value="egg"> No Egg</label>
+        <label><input type="checkbox" name="filters[]" value="dairy"> No Milk</label>
+        <label><input type="checkbox" name="filters[]" value="meat"> No Meat</label>
+        <label><input type="checkbox" name="filters[]" value="nut"> No Nuts</label>
+        <label><input type="checkbox" name="filters[]" value="gluten"> Gluten Free</label>
       </div>
       <button type="submit" class="apply-btn">Apply Filters</button>
       </form>
@@ -91,7 +98,7 @@ $result = $stmt->get_result();
             </div>
 
             <div class="card-body">
-                <p><?php echo $row['subheading']; ?></p>
+                <p>with <?php echo $row['subheading']; ?></p>
             </div>
         </a>
 

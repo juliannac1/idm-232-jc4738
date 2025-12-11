@@ -30,7 +30,7 @@
   src: url("fonts/Roboto-Regular.ttf") format("truetype");
 }
 
-/* HEADINGS */
+
 h1 {
   font-family: "Judson-Regular", sans-serif;
   font-size: 60px;
@@ -49,7 +49,7 @@ h3 {
   font-weight: 500;
 }
 
-/* BODY */
+
 body {
   font-family: "Roboto-Regular", sans-serif;
   background-color: #EADED7;
@@ -58,27 +58,26 @@ body {
 .nav-links {
   list-style: none;
   margin: 0;
-  padding: 40px 20px; /* vertical spacing */
+  padding: 40px 20px; 
   display: flex;
-  justify-content: center; /* center the whole nav */
+  justify-content: center; 
   align-items: center;
   position: relative;
 }
 
-/* Center Savor */
+
 .nav-links .savor {
-  position: absolute; /* keeps it in the center */
-  left: 50%;
+  position: absolute; 
   transform: translateX(-50%);
   text-align: center;
 }
 
-/* Place nav links to the right of Savor */
+
 .nav-links .nav {
   display: flex;
-  gap: 30px; /* space between Recipes and Help */
-  margin-left: calc(50% + 150px); /* push it right of Savor */
-  /* 150px = half the width of Savor + some space; adjust as needed */
+  gap: 30px; 
+  margin-left: calc(50% + 150px); 
+  
 }
 
 .nav-links .nav li a {
@@ -104,26 +103,27 @@ a {
   color: #000;
 }
 
-/* FILTER BUTTON */
+
 .filter-button {
   display: block;
-  margin-top: 10px; /* spacing below search bar */
+  margin-top: 10px; 
   padding: 10px 20px;
   font-size: 16px;
   border-radius: 8px;
   background: linear-gradient(to bottom, #fff9f56d, #EADED7);
   cursor: pointer;
-  box-shadow: 0 4px 6px rgba(0,0,0,0.2); /* raised effect */
+  box-shadow: 0 4px 6px rgba(0,0,0,0.2); 
   transition: 0.3s;
 }
 
-/* Hover effect for button */
+
 .filter-button:hover {
   background-color: #ffffff55;
   color: #241104;
 }
 
-/* POPUP */
+
+
 .popup {
   display: none;
   position: fixed;
@@ -142,7 +142,6 @@ a {
   opacity: 1;
 }
 
-/* POPUP CONTENT */
 .popup-content {
   background-color: #f5f3ee;
   padding: 25px 20px;
@@ -157,7 +156,6 @@ a {
   gap: 15px;
 }
 
-/* FIX FORM INSIDE POPUP */
 .popup-content form {
   background: transparent !important;
   width: 100% !important;
@@ -170,13 +168,12 @@ a {
   text-align: left;
 }
 
-/* FIX CHECKBOX ALIGNMENT */
 .filter-options-container {
   display: flex;
   flex-direction: column;
   gap: 12px;
   width: 100%;
-  align-items: flex-start; /* important */
+  align-items: flex-start; 
 }
 
 .filter-options-container label {
@@ -191,14 +188,13 @@ a {
   margin: 0;
 }
 
-/* CLOSE BUTTON */
 .close-button {
   position: absolute;
   top: 12px;
   right: 12px;
   background: transparent;
   border: none;
-  font-size: 24px;
+
   cursor: pointer;
   color: #494949;
   font-weight: bold;
@@ -209,8 +205,6 @@ a {
   transition: 0.2s;
 }
 
-
-/* FILTER OPTIONS */
 .filter-options-container {
   display: flex;
   flex-direction: column;
@@ -233,36 +227,39 @@ a {
   cursor: pointer;
   font-size: 16px;
   color:#241104;
-  background: linear-gradient(to top, #ffffff, #e0e0e0); /* shiny gradient */
+  background: linear-gradient(to top, #ffffff, #e0e0e0);
   box-shadow: 0 4px 6px rgba(0,0,0,0.2), 0 2px 4px rgba(255,255,255,0.7) inset; /* raised + highlight */
   transition: all 0.2s ease;
-  margin: 15px auto 0 auto; /* center horizontally */
+  margin: 15px auto 0 auto;
   display: block;
 }
 
 .apply-btn:hover {
-  transform: translateY(-2px); /* lift effect */
+  transform: translateY(-2px); 
   box-shadow: 0 6px 8px rgba(0,0,0,0.25), 0 2px 4px rgba(255,255,255,0.7) inset;
   background: linear-gradient(to top, #ffffff, #dcdcdc);
 }
 
-/* RECIPES GRID */
+
 .recipes {
   margin: 0 auto;
   background: linear-gradient(to bottom, #fff9f56d, #EADED7);
   border: none;
   padding: 0.75rem 1.5rem;
-  font-size: 1rem;
+
   border-radius: 8px;
   box-shadow: 0 1px 1px rgba(0, 0, 0, 0.078);
+  
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  gap: 1rem;
-  justify-content: center;
+  
+ 
+  justify-items: center;   
+  align-items: start;
+  justify-content: center; 
   max-width: 70%;
 }
 
-/* RECIPE CARD — use original one */
 .recipe-card {
   display:flex;
   flex-direction: column;
@@ -307,22 +304,43 @@ a {
   color: #241104;
 }
 
-/* RECIPE COVER */
-.recipe-cover-img {
-  list-style: none;
-  padding: 0;
-  margin: 0;
+.recipe-cover {
+  height: 200px; 
+  overflow: hidden; 
+  position: relative;
+  left: 50%;
+  transform: translateX(-50%);
+  margin-bottom: 1.5rem
 }
 
-/* BACK BUTTON */
+.recipe-cover img {
+  width: 100%;       
+  height: 100%;      
+  object-fit: cover; 
+  display: block;    
+ 
+}
+
+.result-wrapper {
+  max-width: 70%;   
+  margin: 0 auto;   
+  padding: 0 1.5rem;
+}
+
+.Filtered {
+  margin-bottom: 1rem;
+  text-align: left;
+}
+
 .back-btn {
-  display: inline-block;
-  margin-bottom: 20px;
-  padding: 8px 15px;
+  position: absolute;  
+  top: 30%;        
+  left: 15%;           
+  z-index: 10;        
   background: linear-gradient(to bottom, #fff9f56d, #EADED7);
-  color: #000;
-  border: 3px solid #000000;
+  border: 3px solid #000;
   border-radius: 8px;
+  padding: 8px 15px;
   cursor: pointer;
   font-size: 14px;
   transition: 0.2s;
@@ -333,21 +351,20 @@ a {
 }
 
 .search-container {
-  width: 500px;       /* same width as search bar */
-  margin: 0 auto;     /* center container horizontally */
+  width: 500px;      
+  margin: 0 auto;  
   display: flex;
   flex-direction: column;
-  align-items: flex-start; /* left-align children */
+  align-items: flex-start; 
 }
 
-/* SEARCH BAR */
+
 .search-bar {
   position: relative;
-  width: 500px; /* width of your search bar */
-  margin: 0 auto; /* center horizontally */
+  width: 500px; 
+  margin: 0 auto; 
 }
 
-/* Style search input form */
 .search-bar form {
   display: flex;
   border-radius: 2rem;
@@ -378,7 +395,7 @@ form input {
   border-radius: 2rem 0 0 2rem;
   padding: 25px;
   font-size: 1.2rem;
-  font-family: "Roboto-Regular", sans-serif;
+ 
   color: black;
 }
 
@@ -390,7 +407,6 @@ form button {
   color: #EADED7;
   cursor: pointer;
   border-radius: 0 2rem 2rem 2.5rem;
-  font-size: 1.5rem;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -405,7 +421,6 @@ form button {
   object-fit: contain;
 }
 
-/* CONTENT */
 .content {
   margin: 0 auto;
   background: linear-gradient(to bottom, #fff9f56d, #EADED7);
@@ -414,6 +429,7 @@ form button {
   font-size: 1rem;
   border-radius: 8px;
   box-shadow: 0 1px 1px rgba(0, 0, 0, 0.078);
+  width: 60%;
  
 }
 
@@ -427,6 +443,27 @@ form button {
   padding: 0;
   
 }
+.recipe-detail {
+  display: flex;
+  gap: 1.5rem;
+
+  margin: 0 auto 2rem auto;
+  align-items: flex-start;
+  flex-wrap: nowrap; 
+}
+
+.recipe-detail img {
+  flex: 1;        
+  width: 100%;     
+  height: auto;
+  object-fit: contain;
+  border-radius: 10px;
+}
+
+.recipe-detail .textBox {
+  flex: 2;         
+  min-width: 0;    
+}
 
 .recipe-img img,
 .recipe-cover-img img {
@@ -434,7 +471,7 @@ form button {
   width: 100%;
   height: auto;
   display: block;
-  margin: 0 auto; /* centers the images */
+  margin: 0 auto; 
 }
 
 .helping {
@@ -460,17 +497,35 @@ form button {
   border-radius: 10px;
 }
 
-/* FIXED BREAKPOINT: Was 00px (invalid) */
-@media (max-width: 600px) {
+@media (max-width: 700px) {
 
-  h1 {
-    font-size: 40px;
-    padding: 3rem;
+ 
+  .nav-links .nav {
+    display: flex;
+    gap: 30px; 
+    margin-left: 50%; 
+    
   }
 
-  h2 { font-size: 20px; }
-  h3 { font-size: 16px; }
+  
+  .recipe-detail {
+    flex-direction: column;
+    text-align: left;
+  }
 
+  .recipe-detail img,
+  .recipe-detail .textBox {
+    flex: none;
+    width: 100%;
+  }
+
+  .recipe-detail img {
+    max-width: 300px;    
+    width: 100%;
+    height: auto;
+    flex-shrink: 1;        
+    object-fit: contain;  
+  }
   form {
     width: 400px;
   }
@@ -482,9 +537,40 @@ form button {
   .recipes {
     margin: 50px;
   }
+
+  .recipe-cover  {
+    width: 100vw;      
+   
+  }
+
+  .recipe-cover img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
 }
 
-@media (min-width: 601px) {
+@media (min-width: 701px) and (max-width: 1200px) {
+  .nav-links .nav {
+    display: flex;
+    gap: 30px; 
+    margin-left: 45%; 
+    
+  }
+
+  .search-bar{
+    margin: 0 2rem ;
+  }
+
+  .recipe-detail {
+    flex-wrap: nowrap; 
+  }
+  .recipe-detail img {
+    max-width: 400px;    
+  }
+}
+
+@media (min-width: 700px) {
 
   form input {
     font-size: 1.1rem;
@@ -492,13 +578,27 @@ form button {
 
   .recipes {
     max-width: 1000px;
+    min-width: 450px;
     margin: 0 auto;
     justify-content: center;
+  }
+  .nav-links .savor {
+    position: absolute; 
+    transform: translateX(-4%);
+    text-align: center;
+  }
+  
+  
+   .search-bar{
+    margin: 0 2rem ;
+  }
+  .nav-links .nav {
+    display: flex;
+    gap: 30px; 
+    margin-left: calc(50% + 10px); 
+    
   }
 
 }
 
-.footer {
-  font-family: "Judson-Regular", sans-serif;
-  text-align: center;
-}
+

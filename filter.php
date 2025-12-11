@@ -1,5 +1,5 @@
 <?php
-include 'db.php';
+include '_db.php';
 
 $conditions = [];
 $params = [];
@@ -7,7 +7,7 @@ $param_types = '';
 
 if (!empty($_POST['filters'])) {
     foreach ($_POST['filters'] as $filter) {
-        // filter column contains strings like "Egg*Milk"
+        
         $conditions[] = "filter LIKE ?";
         $params[] = "%$filter%";
         $param_types .= 's';
@@ -38,38 +38,47 @@ $result = $stmt->get_result();
 </head>
 <body>
 <header>
-  <nav>
-    <ul class="nav-links">
-      <li><a href="index.php">All Recipes</a></li>
-      <li><a href="help.html">Help</a></li>
-      <li><a href="index.php"><h1>Savor.</h1></a></li>
-    </ul>
-  </nav>
+
+<nav>
+<ul class="nav-links">
+<li class="savor"><a href="index.php"><h1>Savor.</h1></a></li>
+<div class="nav">
+    <li><a href="index.php">Recipes</a></li>
+    <li><a href="help.html">Help</a></li>
+</div>
+</ul>
+</nav>
 </header>
 <main>
 <button class="back-btn" onclick="history.back()">← Back</button>
+<hr>
 
-  <h2>Filtered Recipes</h2>
-  <div class="recipes">
-    <?php if ($result->num_rows > 0): ?>
-      <?php while ($row = $result->fetch_assoc()): ?>
-        <a class="recipe-card" href="recipe.php?id=<?php echo $row['id']; ?>">
-          <div class="recipe-cover-img">
-            <img src="<?php echo rtrim($row['images'], '/') . '/cover.jpg'; ?>" 
-                 alt="<?php echo "Cover image for " . htmlspecialchars($row['title']); ?>">
-          </div>
-          <div class="card-header">
-            <h2><?php echo htmlspecialchars($row['title']); ?></h2>
-          </div>
-          <div class="card-body">
-            <p><?php echo htmlspecialchars($row['subheading']); ?></p>
-          </div>
-        </a>
-      <?php endwhile; ?>
-    <?php else: ?>
-      <p>No recipes found with the selected filters.</p>
-    <?php endif; ?>
-  </div>
+<div class="result-wrapper">
+    <h2 class="Filtered">Filtered Recipes</h2>
+
+    <div class="recipes">
+      <?php if ($result->num_rows > 0): ?>
+        <?php while ($row = $result->fetch_assoc()): ?>
+          <a class="recipe-card" href="recipe.php?id=<?php echo $row['id']; ?>">
+            <div class="recipe-cover-img">
+              <img src="<?php echo rtrim($row['images'], '/') . '/cover.jpg'; ?>" 
+                   alt="<?php echo "Cover image for " . htmlspecialchars($row['title']); ?>">
+            </div>
+            <div class="card-header">
+              <h2><?php echo htmlspecialchars($row['title']); ?></h2>
+            </div>
+            <div class="card-body">
+              <p><?php echo htmlspecialchars($row['subheading']); ?></p>
+            </div>
+          </a>
+        <?php endwhile; ?>
+      <?php else: ?>
+        <p>No recipes found with the selected filters.</p>
+      <?php endif; ?>
+    </div>
+</div>
+
 </main>
+
 </body>
 </html>

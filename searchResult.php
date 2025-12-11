@@ -1,5 +1,5 @@
 <?php
-include 'db.php';
+include '_db.php';
 
 $search_input = '';
 $result = null;
@@ -40,13 +40,15 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 </head>
 <body>
 <header>
-    <nav>
+<nav>
         <ul class="nav-links">
-            <li><a href="index.php">All Recipes</a></li>
+        <li class="savor"><a href="index.php"><h1>Savor.</h1></a></li>
+        <div class="nav">
+            <li><a href="index.php">Recipes</a></li>
             <li><a href="help.html">Help</a></li>
-            <li><a href="index.php"><h1>Savor.</h1></a></li>
+        </div>
         </ul>
-    </nav>
+        </nav>
 </header>
 
 <main>
@@ -55,6 +57,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     <?php if (!empty($error_message)): ?>
         <p><?php echo htmlspecialchars($error_message); ?></p>
     <?php elseif ($result && $result->num_rows > 0): ?>
+        <div class="result-wrapper">
         <h2>Search results for "<?php echo htmlspecialchars($search_input); ?>"</h2>
         <div class="recipes">
             <?php while ($row = $result->fetch_assoc()): ?>
@@ -75,6 +78,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     <?php else: ?>
         <p>No recipes found for "<?php echo htmlspecialchars($search_input); ?>"</p>
     <?php endif; ?>
+    </div>
 </main>
 </body>
 </html>

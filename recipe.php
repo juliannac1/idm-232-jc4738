@@ -1,5 +1,5 @@
 <?php
-include 'db.php';
+include '_db.php';
 
 $id = $_GET['id'];
 
@@ -45,41 +45,73 @@ $images = $recipe['images'];
     </header>
 
     <main class="recipe-text">
+    <div class="recipe-cover">
+                <img src="<?php echo rtrim($images, '/') . '/cover.jpg'; ?>" 
+                alt="<?php echo "Cover image for " . htmlspecialchars($recipe_title); ?>">
+
+            </div>
     <button class="back-btn" onclick="history.back()">← Back</button>
         <section class="recipe-hero">
-            <div class="recipe-hero-left">
+        
+            <div class="recipe-hero-text">
                 <div class="recipe-title">
                     <h1><?php echo htmlspecialchars($recipe_title)?></h1>
                 </div>
                 <div class="recipe-subtitle">
-                    <h3><?php echo "w/ " . htmlspecialchars($recipe_subheading)?></h3>
+                    <h3><?php echo "with " . htmlspecialchars($recipe_subheading)?></h3>
                 </div>
                 <div class="recipe-description">
                     <p><?php echo htmlspecialchars($recipe_description)?></p>
                 </div>
             </div>
-            <div class="recipe-hero-right">
-            <div class="recipe-cover-img">
-                <img src="<?php echo rtrim($images, '/') . '/cover.jpg'; ?>" 
-                alt="<?php echo "Cover image for " . htmlspecialchars($recipe_title); ?>">
-            </div>
-
-            </div>
+            
+           
         </section>
 
-        <section class="recipe-containers">
-<?php 
-    $step_number = 1;
-    $recipe_steps = explode("*", $recipe_recipe);
+       
+        <div class="recipe-detail">
+            <div class="textBox">   
+            <h3>Ingredients</h3>
+                <ul>
+                <?php 
+                $ingredients = explode('*', $recipe_ingredients);
+                foreach ($ingredients as $ingredient) {
+                    echo "<li>" . htmlspecialchars(trim($ingredient)) . "</li>";
+                }
+                ?>
+                </ul>
+            </div>
+                <img src="<?php echo rtrim($images, '/') . '/ingredients.png'; ?>" 
+                alt="<?php echo "Ingredients Image of " . htmlspecialchars($recipe_title); ?>">           
+        </div>
+     
 
-    $word_numbers = ['one','two','three','four','five','six'];
+           
 
-    foreach ($recipe_steps as $step) {
+        <div class="recipe-detail"> <?php list($tool_name, $tool_description) = explode('*', $recipe_tool); ?> 
+        <img src="<?php echo rtrim($images, '/') . '/tool.jpg'; ?>" alt="<?php echo "Tool Image of " . htmlspecialchars($recipe_title); ?>"> 
+        <div class="textBox">
+        <h3>Tool</h3> 
+        <h4><?php echo htmlspecialchars($tool_name); ?></h4> 
+        <p><?php echo htmlspecialchars($tool_description); ?></p> 
+        </div>
+    </div>
+      
 
-        
-        $current_image = rtrim($images, '/') . '/' . $word_numbers[$step_number - 1] . '.jpg';
-?>
-    <div class="recipe-information-left">
+
+    <h3>Recipe</h3>
+    <?php 
+        $step_number = 1;
+        $recipe_steps = explode("*", $recipe_recipe);
+
+        $word_numbers = ['one','two','three','four','five','six'];
+
+        foreach ($recipe_steps as $step) {
+
+            
+            $current_image = rtrim($images, '/') . '/' . $word_numbers[$step_number - 1] . '.jpg';
+    ?>
+    <div class="recipe-information">
         <div class="recipe-heading">
             <h3><?php echo htmlspecialchars($step_number); ?></h3>
         </div>
@@ -89,18 +121,18 @@ $images = $recipe['images'];
         </div>
     </div>
 
-    <div class="recipe-information-right">
+    <div class="recipe-information">
         <div class="recipe-img">
             <img src="<?php echo htmlspecialchars($current_image); ?>" 
                  alt="Step <?php echo $step_number; ?> image">
         </div>
     </div>
 
-<?php
-        $step_number++;
-    }
-?>
-</section>
+        <?php
+                $step_number++;
+            }
+        ?>
+        </section>
 
 
         <section class="recipe-conclusion">
